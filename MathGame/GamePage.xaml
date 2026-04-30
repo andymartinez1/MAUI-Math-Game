@@ -4,12 +4,17 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MathGame.GamePage">
 
-    <VerticalStackLayout Padding="200" Spacing="25">
-        <Label Text="{Binding GameType}" VerticalOptions="Center" HorizontalOptions="Center" />
-        <Label x:Name="QuestionLabel" VerticalOptions="Center" HorizontalOptions="Center" FontSize="24" />
-        <Entry x:Name="AnswerEntry" HorizontalOptions="Center" />
-        <Button x:Name="SubmitAnswer" Text="Answer" HorizontalOptions="Center" Clicked="OnAnswerSubmitted" />
-        <Label x:Name="AnswerLabel" VerticalOptions="Center" HorizontalOptions="Center" />
+    <VerticalStackLayout Padding="100" Spacing="25">
+        <VerticalStackLayout x:Name="QuestionArea" Spacing="25">
+            <Label Text="{Binding GameType}" VerticalOptions="Center" HorizontalOptions="Center" />
+            <Label x:Name="QuestionLabel" VerticalOptions="Center" HorizontalOptions="Center" FontSize="24" />
+            <Entry x:Name="AnswerEntry" HorizontalOptions="Center" />
+            <Button x:Name="SubmitAnswer" Text="Answer" HorizontalOptions="Center" Clicked="OnAnswerSubmitted" />
+            <Label x:Name="AnswerLabel" VerticalOptions="Center" HorizontalOptions="Center" FontSize="32" />
+        </VerticalStackLayout>
+
         <Label x:Name="GameOverLabel" VerticalOptions="Center" HorizontalOptions="Center" />
+        <Button x:Name="BackToMenu" IsVisible="False" Text="Back to Main Menu" HorizontalOptions="Center"
+                Clicked="OnBackToMenu" />
     </VerticalStackLayout>
 </ContentPage>
