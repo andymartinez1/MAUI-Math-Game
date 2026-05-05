@@ -1,30 +1,49 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MathGame.PreviousGames"
-             BackgroundImageSource="game.jpg">
+<ContentPage
+    BackgroundImageSource="game.jpg"
+    x:Class="MathGame.PreviousGames"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
     <ScrollView>
         <VerticalStackLayout Padding="200,100">
             <CollectionView x:Name="GamesList">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Grid RowDefinitions="50" ColumnDefinitions="*,*,*,*">
-                            <Label Grid.Column="0"
-                                   Text="{Binding DatePlayed, 
-                                   StringFormat='{0:d}'}"
-                                   FontSize="16" />
-                            <Label Grid.Column="1"
-                                   Text="{Binding Type}"
-                                   FontSize="16" />
-                            <Label Grid.Column="2"
-                                   Text="{Binding Score}"
-                                   FontSize="16" />
-                            <Button Grid.Column="3"
-                                    Text="Delete"
-                                    BindingContext="{Binding Id}"
-                                    Clicked="OnDelete"
-                                    FontSize="16" />
+                        <Grid
+                            ColumnDefinitions="*,*,*,*"
+                            Padding="10"
+                            RowDefinitions="50">
+                            <Label
+                                FontFamily="PressStartRegular"
+                                FontSize="16"
+                                Grid.Column="0"
+                                Text="{Binding DatePlayed, StringFormat='{0:d}'}"
+                                TextColor="Black" />
+                            <Label
+                                FontFamily="PressStartRegular"
+                                FontSize="16"
+                                Grid.Column="1"
+                                Text="{Binding Type}"
+                                TextColor="Black" />
+                            <Label
+                                FontFamily="PressStartRegular"
+                                FontSize="16"
+                                Grid.Column="2"
+                                Text="{Binding Score}"
+                                TextColor="Black" />
+                            <Button
+                                BindingContext="{Binding Id}"
+                                Clicked="OnDelete"
+                                FontFamily="PressStartRegular"
+                                FontSize="16"
+                                Grid.Column="3"
+                                Text="Delete"
+                                TextColor="Black">
+                                <Button.GestureRecognizers>
+                                    <PointerGestureRecognizer PointerEntered="OnPointerEntered" PointerExited="OnPointerExited" />
+                                </Button.GestureRecognizers>
+                            </Button>
                         </Grid>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>

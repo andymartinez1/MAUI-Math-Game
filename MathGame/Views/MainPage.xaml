@@ -1,73 +1,82 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MathGame.MainPage"
-             BackgroundImageSource="math.jpg">
+<ContentPage
+    BackgroundImageSource="math.jpg"
+    x:Class="MathGame.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
     <ContentView>
-        <VerticalStackLayout Spacing="25" Padding="50">
-            <Label Text="Math Game"
-                   FontSize="48"
-                   TextColor="Black"
-                   HorizontalOptions="Center"
-                   FontFamily="PressStartRegular" />
-            <Label Text="Choose Game Mode:"
-                   FontSize="32"
-                   TextColor="Black"
-                   HorizontalOptions="Center"
-                   FontFamily="PressStartRegular" />
+        <VerticalStackLayout Padding="50" Spacing="25">
+            <Label
+                FontFamily="PressStartRegular"
+                FontSize="48"
+                HorizontalOptions="Center"
+                Text="Math Game"
+                TextColor="Black" />
+            <Label
+                FontFamily="PressStartRegular"
+                FontSize="32"
+                HorizontalOptions="Center"
+                Text="Choose Game Mode:"
+                TextColor="Black" />
             <Grid Margin="0,100">
-                <Grid RowDefinitions="*,*" ColumnDefinitions="*,*,*,*">
-                    <Button Grid.Row="0" Grid.Column="0"
-                            Text="Addition"
-                            Margin="12"
-                            Clicked="OnGameChosen"
-                            FontFamily="PressStartRegular">
+                <Grid ColumnDefinitions="*,*,*,*" RowDefinitions="*,*">
+                    <Button
+                        Clicked="OnGameChosen"
+                        FontFamily="PressStartRegular"
+                        Grid.Column="0"
+                        Grid.Row="0"
+                        Margin="12"
+                        Text="Addition">
                         <Button.GestureRecognizers>
-                            <PointerGestureRecognizer PointerEntered="OnPointerEntered"
-                                                      PointerExited="OnPointerExited" />
+                            <PointerGestureRecognizer PointerEntered="OnPointerEntered" PointerExited="OnPointerExited" />
                         </Button.GestureRecognizers>
                     </Button>
-                    <Button Grid.Row="0" Grid.Column="1"
-                            Text="Subtraction"
-                            Margin="12"
-                            Clicked="OnGameChosen"
-                            FontFamily="PressStartRegular">
+                    <Button
+                        Clicked="OnGameChosen"
+                        FontFamily="PressStartRegular"
+                        Grid.Column="1"
+                        Grid.Row="0"
+                        Margin="12"
+                        Text="Subtraction">
                         <Button.GestureRecognizers>
-                            <PointerGestureRecognizer PointerEntered="OnPointerEntered"
-                                                      PointerExited="OnPointerExited" />
+                            <PointerGestureRecognizer PointerEntered="OnPointerEntered" PointerExited="OnPointerExited" />
                         </Button.GestureRecognizers>
                     </Button>
-                    <Button Grid.Row="0" Grid.Column="2"
-                            Text="Multiplication"
-                            Margin="12"
-                            Clicked="OnGameChosen"
-                            FontFamily="PressStartRegular">
+                    <Button
+                        Clicked="OnGameChosen"
+                        FontFamily="PressStartRegular"
+                        Grid.Column="2"
+                        Grid.Row="0"
+                        Margin="12"
+                        Text="Multiplication">
                         <Button.GestureRecognizers>
-                            <PointerGestureRecognizer PointerEntered="OnPointerEntered"
-                                                      PointerExited="OnPointerExited" />
+                            <PointerGestureRecognizer PointerEntered="OnPointerEntered" PointerExited="OnPointerExited" />
                         </Button.GestureRecognizers>
                     </Button>
-                    <Button Grid.Row="0" Grid.Column="3"
-                            Text="Division"
-                            Margin="12"
-                            Clicked="OnGameChosen"
-                            FontFamily="PressStartRegular">
+                    <Button
+                        Clicked="OnGameChosen"
+                        FontFamily="PressStartRegular"
+                        Grid.Column="3"
+                        Grid.Row="0"
+                        Margin="12"
+                        Text="Division">
                         <Button.GestureRecognizers>
-                            <PointerGestureRecognizer PointerEntered="OnPointerEntered"
-                                                      PointerExited="OnPointerExited" />
+                            <PointerGestureRecognizer PointerEntered="OnPointerEntered" PointerExited="OnPointerExited" />
                         </Button.GestureRecognizers>
                     </Button>
-                    <Button Grid.Row="1" Grid.ColumnSpan="4" Grid.Column="0"
-                            BackgroundColor="DimGrey"
-                            Text="View Previous Game Scores"
-                            Margin="12"
-                            Clicked="OnViewPreviousGamesChosen"
-                            FontFamily="PressStartRegular">
+                    <Button
+                        BackgroundColor="DimGrey"
+                        Clicked="OnViewPreviousGamesChosen"
+                        FontFamily="PressStartRegular"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="4"
+                        Grid.Row="1"
+                        Margin="12"
+                        Text="View Previous Game Scores">
                         <Button.GestureRecognizers>
-                            <PointerGestureRecognizer PointerEntered="OnPointerEntered"
-                                                      PointerExited="OnPointerExited" />
+                            <PointerGestureRecognizer PointerEntered="OnPointerEntered" PointerExited="OnPointerExited" />
                         </Button.GestureRecognizers>
                     </Button>
                 </Grid>

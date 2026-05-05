@@ -17,4 +17,14 @@ public partial class PreviousGames : ContentPage
 
         GamesList.ItemsSource = App.GameRepository.GetAllGames();
     }
+
+    private async void OnPointerEntered(object sender, PointerEventArgs e)
+    {
+        await ((View)sender).ScaleToAsync(1.1, 100, Easing.Linear);
+    }
+
+    private async void OnPointerExited(object sender, PointerEventArgs e)
+    {
+        await ((View)sender).ScaleToAsync(1.0, 100, Easing.Linear);
+    }
 }

@@ -119,4 +119,14 @@ public partial class GamePage : ContentPage
             _ => throw new ArgumentException($"Unknown game type: {gameType}", nameof(gameType)),
         };
     }
+
+    private async void OnPointerEntered(object sender, PointerEventArgs e)
+    {
+        await ((View)sender).ScaleToAsync(1.1, 100, Easing.Linear);
+    }
+
+    private async void OnPointerExited(object sender, PointerEventArgs e)
+    {
+        await ((View)sender).ScaleToAsync(1.0, 100, Easing.Linear);
+    }
 }
