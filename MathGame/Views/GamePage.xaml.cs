@@ -1,21 +1,23 @@
 ﻿using MathGame.Models;
 
-namespace MathGame;
+namespace MathGame.Views;
 
 public partial class GamePage : ContentPage
 {
     private const int TotalQuestions = 3;
     private static readonly Random Random = new();
+    private readonly Difficulty _difficulty;
     private readonly GameOperation _gameOperation;
     private int _firstNum;
     private int _roundsLeft = TotalQuestions;
     private int _score;
     private int _secondNum;
 
-    public GamePage(string gameType)
+    public GamePage(string gameType, Difficulty difficulty)
     {
         InitializeComponent();
         GameType = gameType;
+        _difficulty = difficulty;
         _gameOperation = SelectGameType(gameType);
         BindingContext = this;
         CreateNewQuestion();
@@ -25,6 +27,14 @@ public partial class GamePage : ContentPage
 
     private void CreateNewQuestion()
     {
+        var (min, max) = _difficulty switch
+        {
+            Difficulty.Beginner => (1, 10),
+            Difficulty.Intermediate => (1, 25),
+            Difficulty.Advanced => (1, 100),
+            _ => (1, 10),
+        };
+
         var gameOperator = _gameOperation switch
         {
             GameOperation.Addition => "+",
@@ -38,14 +48,14 @@ public partial class GamePage : ContentPage
         {
             do
             {
-                _firstNum = Random.Next(1, 99);
-                _secondNum = Random.Next(1, 99);
-            } while (_firstNum < _secondNum || _firstNum % _secondNum != 0);
+                _firstNum = Random.Next(min, max);
+                _secondNum = Random.Next(min, max);
+            } while (_secondNum == 0 || _firstNum < _secondNum || _firstNum % _secondNum != 0);
         }
         else
         {
-            _firstNum = Random.Next(1, 9);
-            _secondNum = Random.Next(1, 9);
+            _firstNum = Random.Next(min, max);
+            _secondNum = Random.Next(min, max);
         }
 
         QuestionLabel.Text = $"{_firstNum} {gameOperator} {_secondNum}";
@@ -97,15 +107,16 @@ public partial class GamePage : ContentPage
             new Game
             {
                 DatePlayed = DateTime.Now,
+                Difficulty = _difficulty,
                 Type = _gameOperation,
                 Score = _score,
             }
         );
     }
 
-    private void OnBackToMenu(object sender, EventArgs e)
+    private async void OnBackToMenu(object sender, EventArgs e)
     {
-        Navigation.PushAsync(new MainPage());
+        await Navigation.PopToRootAsync();
     }
 
     private static GameOperation SelectGameType(string gameType)

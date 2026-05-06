@@ -1,12 +1,20 @@
-﻿namespace MathGame;
+﻿using MathGame.ViewModels;
 
-public partial class PreviousGames : ContentPage
+namespace MathGame;
+
+public partial class PreviousGamesPage : ContentPage
 {
-    public PreviousGames()
+    public PreviousGamesPage()
     {
         InitializeComponent();
 
-        GamesList.ItemsSource = App.GameRepository.GetAllGames();
+        LoadGames();
+    }
+
+    private void LoadGames()
+    {
+        var games = App.GameRepository.GetAllGames();
+        GamesList.ItemsSource = games.Select(g => new GameViewModel(g)).ToList();
     }
 
     private void OnDelete(object? sender, EventArgs e)
@@ -15,7 +23,12 @@ public partial class PreviousGames : ContentPage
 
         App.GameRepository.Delete((int)button.BindingContext);
 
-        GamesList.ItemsSource = App.GameRepository.GetAllGames();
+        LoadGames();
+    }
+
+    private async void OnBackToMenu(object sender, EventArgs e)
+    {
+        await Navigation.PopToRootAsync();
     }
 
     private async void OnPointerEntered(object sender, PointerEventArgs e)

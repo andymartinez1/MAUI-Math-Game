@@ -5,10 +5,10 @@
         </TargetFrameworks
     >
     <!-- Note for MacCatalyst:
-                The default runtime is maccatalyst-x64, except in Release config, in which case the default is maccatalyst-x64;maccatalyst-arm64.
-                When specifying both architectures, use the plural <RuntimeIdentifiers> instead of the singular <RuntimeIdentifier>.
-                The Mac App Store will NOT accept apps with ONLY maccatalyst-arm64 indicated;
-                either BOTH runtimes must be indicated or ONLY macatalyst-x64. -->
+                        The default runtime is maccatalyst-x64, except in Release config, in which case the default is maccatalyst-x64;maccatalyst-arm64.
+                        When specifying both architectures, use the plural <RuntimeIdentifiers> instead of the singular <RuntimeIdentifier>.
+                        The Mac App Store will NOT accept apps with ONLY maccatalyst-arm64 indicated;
+                        either BOTH runtimes must be indicated or ONLY macatalyst-x64. -->
     <!-- For example: <RuntimeIdentifiers>maccatalyst-x64;maccatalyst-arm64</RuntimeIdentifiers> -->
     <OutputType>Exe</OutputType>
     <RootNamespace>MathGame</RootNamespace>
@@ -17,11 +17,11 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <!-- Enable XAML source generation for faster build times and improved performance.
-                     This generates C# code from XAML at compile time instead of runtime inflation.
-                     To disable, remove this line.
-                     For individual files, you can override by setting Inflator metadata:
-                       <MauiXaml Update="MyPage.xaml" Inflator="Default" /> (reverts to defaults: Runtime for Debug, XamlC for Release)
-                       <MauiXaml Update="MyPage.xaml" Inflator="Runtime" /> (force runtime inflation) -->
+                             This generates C# code from XAML at compile time instead of runtime inflation.
+                             To disable, remove this line.
+                             For individual files, you can override by setting Inflator metadata:
+                               <MauiXaml Update="MyPage.xaml" Inflator="Default" /> (reverts to defaults: Runtime for Debug, XamlC for Release)
+                               <MauiXaml Update="MyPage.xaml" Inflator="Runtime" /> (force runtime inflation) -->
     <MauiXamlInflator>SourceGen</MauiXamlInflator>
     <!-- Display name -->
     <ApplicationTitle>MathGame</ApplicationTitle>
@@ -69,10 +69,10 @@
     <MauiXaml Update="Views\GamePage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
-    <MauiXaml Update="Views\MainPage.xaml">
+    <MauiXaml Update="Views\SelectGameMode.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
-    <MauiXaml Update="Views\PreviousGames.xaml">
+    <MauiXaml Update="Views\PreviousGamesPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
   </ItemGroup>
@@ -81,11 +81,11 @@
       <DependentUpon>GamePage.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\MainPage.xaml.cs">
+    <Compile Update="Views\SelectGameMode.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\PreviousGames.xaml.cs">
+    <Compile Update="Views\PreviousGamesPage.xaml.cs">
       <DependentUpon>PreviousGames.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>

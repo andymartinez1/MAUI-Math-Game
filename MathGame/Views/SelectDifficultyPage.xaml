@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    BackgroundImageSource="math.jpg"
+    x:Class="MathGame.Views.SelectDifficultyPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <ContentView>
+        <VerticalStackLayout Padding="50" Spacing="25">
+            <Label
+                FontFamily="PressStartRegular"
+                FontSize="48"
+                HorizontalOptions="Center"
+                Text="Math Game"
+                TextColor="Black" />
+            <Label
+                FontFamily="PressStartRegular"
+                FontSize="32"
+                HorizontalOptions="Center"
+                Text="Choose Game Difficulty:"
+                TextColor="Black" />
+            <Grid Margin="0,100">
+                <Grid ColumnDefinitions="*,*,*" RowDefinitions="*,*">
+                    <Button
+                        BackgroundColor="Green"
+                        Clicked="OnDifficultyChosen"
+                        FontFamily="PressStartRegular"
+                        Grid.Column="0"
+                        Grid.Row="0"
+                        Margin="12"
+                        Text="Beginner">
+                        <Button.GestureRecognizers>
+                            <PointerGestureRecognizer PointerEntered="OnPointerEntered" PointerExited="OnPointerExited" />
+                        </Button.GestureRecognizers>
+                    </Button>
+                    <Button
+                        BackgroundColor="Yellow"
+                        Clicked="OnDifficultyChosen"
+                        FontFamily="PressStartRegular"
+                        Grid.Column="1"
+                        Grid.Row="0"
+                        Margin="12"
+                        Text="Intermediate">
+                        <Button.GestureRecognizers>
+                            <PointerGestureRecognizer PointerEntered="OnPointerEntered" PointerExited="OnPointerExited" />
+                        </Button.GestureRecognizers>
+                    </Button>
+                    <Button
+                        BackgroundColor="Red"
+                        Clicked="OnDifficultyChosen"
+                        FontFamily="PressStartRegular"
+                        Grid.Column="2"
+                        Grid.Row="0"
+                        Margin="12"
+                        Text="Advanced">
+                        <Button.GestureRecognizers>
+                            <PointerGestureRecognizer PointerEntered="OnPointerEntered" PointerExited="OnPointerExited" />
+                        </Button.GestureRecognizers>
+                    </Button>
+                    <Button
+                        BackgroundColor="DimGrey"
+                        Clicked="OnViewPreviousGamesChosen"
+                        FontFamily="PressStartRegular"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="4"
+                        Grid.Row="1"
+                        Margin="12"
+                        Text="View Previous Game Scores">
+                        <Button.GestureRecognizers>
+                            <PointerGestureRecognizer PointerEntered="OnPointerEntered" PointerExited="OnPointerExited" />
+                        </Button.GestureRecognizers>
+                    </Button>
+                </Grid>
+            </Grid>
+        </VerticalStackLayout>
+    </ContentView>
+</ContentPage>

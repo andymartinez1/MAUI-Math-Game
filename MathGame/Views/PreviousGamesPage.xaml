@@ -2,42 +2,56 @@
 
 <ContentPage
     BackgroundImageSource="game.jpg"
-    x:Class="MathGame.PreviousGames"
+    x:Class="MathGame.PreviousGamesPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
     <ScrollView>
-        <VerticalStackLayout Padding="200,100">
+        <VerticalStackLayout Padding="100,100">
             <CollectionView x:Name="GamesList">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Grid
-                            ColumnDefinitions="*,*,*,*"
+                            ColumnDefinitions="*,*,*,*,*"
                             Padding="10"
-                            RowDefinitions="50">
+                            RowDefinitions="*,*">
                             <Label
                                 FontFamily="PressStartRegular"
                                 FontSize="16"
                                 Grid.Column="0"
+                                HorizontalTextAlignment="Center"
                                 Text="{Binding DatePlayed, StringFormat='{0:d}'}"
-                                TextColor="Black" />
+                                TextColor="Black"
+                                VerticalTextAlignment="Center" />
                             <Label
                                 FontFamily="PressStartRegular"
                                 FontSize="16"
                                 Grid.Column="1"
-                                Text="{Binding Type}"
-                                TextColor="Black" />
+                                HorizontalTextAlignment="Center"
+                                Text="{Binding DifficultyDisplay}"
+                                TextColor="Black"
+                                VerticalTextAlignment="Center" />
                             <Label
                                 FontFamily="PressStartRegular"
                                 FontSize="16"
                                 Grid.Column="2"
+                                HorizontalTextAlignment="Center"
+                                Text="{Binding TypeDisplay}"
+                                TextColor="Black"
+                                VerticalTextAlignment="Center" />
+                            <Label
+                                FontFamily="PressStartRegular"
+                                FontSize="16"
+                                Grid.Column="3"
+                                HorizontalTextAlignment="Center"
                                 Text="{Binding Score}"
-                                TextColor="Black" />
+                                TextColor="Black"
+                                VerticalTextAlignment="Center" />
                             <Button
                                 BindingContext="{Binding Id}"
                                 Clicked="OnDelete"
                                 FontFamily="PressStartRegular"
                                 FontSize="16"
-                                Grid.Column="3"
+                                Grid.Column="4"
                                 Text="Delete"
                                 TextColor="Black">
                                 <Button.GestureRecognizers>
@@ -48,6 +62,19 @@
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
+            <Button
+                Clicked="OnBackToMenu"
+                FontFamily="PressStartRegular"
+                FontSize="16"
+                Grid.Row="1"
+                HorizontalOptions="Center"
+                IsVisible="False"
+                Text="Back to Main Menu"
+                x:Name="BackToMenu">
+                <Button.GestureRecognizers>
+                    <PointerGestureRecognizer PointerEntered="OnPointerEntered" PointerExited="OnPointerExited" />
+                </Button.GestureRecognizers>
+            </Button>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

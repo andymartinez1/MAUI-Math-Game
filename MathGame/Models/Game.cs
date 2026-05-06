@@ -8,6 +8,8 @@ public class Game
     [AutoIncrement]
     public int Id { get; set; }
 
+    public Difficulty Difficulty { get; set; }
+
     public GameOperation Type { get; set; }
 
     public int Score { get; set; }
@@ -21,4 +23,11 @@ public enum GameOperation
     Subtraction,
     Multiplication,
     Division,
+}
+
+public enum Difficulty
+{
+    Beginner,
+    Intermediate,
+    Advanced,
 }

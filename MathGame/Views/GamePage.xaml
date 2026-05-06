@@ -1,60 +1,66 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MathGame.GamePage"
-             BackgroundImageSource="math.jpg">
+<ContentPage
+    BackgroundImageSource="math.jpg"
+    x:Class="MathGame.Views.GamePage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
     <VerticalStackLayout Padding="100" Spacing="25">
-        <VerticalStackLayout x:Name="QuestionArea" Spacing="25">
-            <Label Text="{Binding GameType}"
-                   VerticalOptions="Center"
-                   HorizontalOptions="Center"
-                   FontSize="24"
-                   FontFamily="PressStartRegular" />
-            <Label x:Name="QuestionLabel"
-                   VerticalOptions="Center"
-                   HorizontalOptions="Center"
-                   FontSize="32"
-                   FontFamily="PressStartRegular" />
-            <Entry x:Name="AnswerEntry"
-                   HorizontalOptions="Center"
-                   FontSize="32"
-                   FontFamily="PressStartRegular" />
-            <Button x:Name="SubmitAnswer"
-                    Text="Answer"
-                    HorizontalOptions="Center"
-                    Clicked="OnAnswerSubmitted"
-                    FontSize="24"
-                    FontFamily="PressStartRegular">
+        <VerticalStackLayout Spacing="25" x:Name="QuestionArea">
+            <Label
+                FontFamily="PressStartRegular"
+                FontSize="24"
+                HorizontalOptions="Center"
+                Text="{Binding GameType}"
+                VerticalOptions="Center" />
+            <Label
+                FontFamily="PressStartRegular"
+                FontSize="32"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                x:Name="QuestionLabel" />
+            <Entry
+                FontFamily="PressStartRegular"
+                FontSize="32"
+                HorizontalOptions="Center"
+                x:Name="AnswerEntry" />
+            <Button
+                Clicked="OnAnswerSubmitted"
+                FontFamily="PressStartRegular"
+                FontSize="24"
+                HorizontalOptions="Center"
+                Text="Answer"
+                x:Name="SubmitAnswer">
                 <Button.GestureRecognizers>
-                    <PointerGestureRecognizer PointerEntered="OnPointerEntered"
-                                              PointerExited="OnPointerExited" />
+                    <PointerGestureRecognizer PointerEntered="OnPointerEntered" PointerExited="OnPointerExited" />
                 </Button.GestureRecognizers>
             </Button>
-            <Label x:Name="AnswerLabel"
-                   VerticalOptions="Center"
-                   HorizontalOptions="Center"
-                   FontSize="32"
-                   FontFamily="PressStartRegular" />
+            <Label
+                FontFamily="PressStartRegular"
+                FontSize="32"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                x:Name="AnswerLabel" />
         </VerticalStackLayout>
 
         <VerticalStackLayout Padding="100" Spacing="25">
-            <Label x:Name="GameOverLabel"
-                   VerticalOptions="Center"
-                   HorizontalOptions="Center"
-                   FontSize="24"
-                   FontFamily="PressStartRegular" />
-            <Button x:Name="BackToMenu"
-                    IsVisible="False"
-                    Text="Back to Main Menu"
-                    HorizontalOptions="Center"
-                    Clicked="OnBackToMenu"
-                    FontSize="16"
-                    FontFamily="PressStartRegular">
+            <Label
+                FontFamily="PressStartRegular"
+                FontSize="24"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                x:Name="GameOverLabel" />
+            <Button
+                Clicked="OnBackToMenu"
+                FontFamily="PressStartRegular"
+                FontSize="16"
+                HorizontalOptions="Center"
+                IsVisible="False"
+                Text="Back to Main Menu"
+                x:Name="BackToMenu">
                 <Button.GestureRecognizers>
-                    <PointerGestureRecognizer PointerEntered="OnPointerEntered"
-                                              PointerExited="OnPointerExited" />
+                    <PointerGestureRecognizer PointerEntered="OnPointerEntered" PointerExited="OnPointerExited" />
                 </Button.GestureRecognizers>
             </Button>
         </VerticalStackLayout>

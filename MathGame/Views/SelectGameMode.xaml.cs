@@ -1,9 +1,14 @@
-﻿namespace MathGame;
+﻿using MathGame.Models;
 
-public partial class MainPage : ContentPage
+namespace MathGame.Views;
+
+public partial class SelectGameMode : ContentPage
 {
-    public MainPage()
+    private readonly Difficulty _difficulty;
+
+    public SelectGameMode(Difficulty difficulty)
     {
+        _difficulty = difficulty;
         InitializeComponent();
     }
 
@@ -11,12 +16,12 @@ public partial class MainPage : ContentPage
     {
         var btn = (Button)sender;
 
-        Navigation.PushAsync(new GamePage(btn.Text));
+        Navigation.PushAsync(new GamePage(btn.Text, _difficulty));
     }
 
-    private void OnViewPreviousGamesChosen(object? sender, EventArgs e)
+    private async void OnBackToMenu(object sender, EventArgs e)
     {
-        Navigation.PushAsync(new PreviousGames());
+        await Navigation.PopToRootAsync();
     }
 
     private async void OnPointerEntered(object sender, PointerEventArgs e)
