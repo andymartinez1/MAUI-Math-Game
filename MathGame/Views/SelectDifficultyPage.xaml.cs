@@ -37,6 +37,6 @@ public partial class SelectDifficultyPage : ContentPage
             _ => Difficulty.Beginner,
         };
 
-        await Navigation.PushAsync(new SelectGameMode(difficulty));
+        await Navigation.PushAsync(new SelectGameModePage(difficulty));
     }
 }

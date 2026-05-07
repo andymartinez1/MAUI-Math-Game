@@ -4,21 +4,23 @@ namespace MathGame.Views;
 
 public partial class GamePage : ContentPage
 {
-    private const int TotalQuestions = 3;
     private static readonly Random Random = new();
     private readonly Difficulty _difficulty;
     private readonly GameOperation _gameOperation;
+    private readonly int _totalQuestions;
     private int _firstNum;
-    private int _roundsLeft = TotalQuestions;
+    private int _roundsLeft;
     private int _score;
     private int _secondNum;
 
-    public GamePage(string gameType, Difficulty difficulty)
+    public GamePage(string gameType, Difficulty difficulty, int questionCount)
     {
         InitializeComponent();
         GameType = gameType;
         _difficulty = difficulty;
         _gameOperation = SelectGameType(gameType);
+        _totalQuestions = Math.Max(1, questionCount);
+        _roundsLeft = _totalQuestions;
         BindingContext = this;
         CreateNewQuestion();
     }
@@ -101,7 +103,7 @@ public partial class GamePage : ContentPage
     {
         QuestionArea.IsVisible = false;
         BackToMenu.IsVisible = true;
-        GameOverLabel.Text = $"Game over. Your score is: {_score} out of {TotalQuestions}!";
+        GameOverLabel.Text = $"Game over. Your score is: {_score} out of {_totalQuestions}!";
 
         App.GameRepository.AddGame(
             new Game
@@ -109,6 +111,7 @@ public partial class GamePage : ContentPage
                 DatePlayed = DateTime.Now,
                 Difficulty = _difficulty,
                 Type = _gameOperation,
+                Questions = _totalQuestions,
                 Score = _score,
             }
         );

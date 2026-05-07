@@ -12,6 +12,8 @@ public class Game
 
     public GameOperation Type { get; set; }
 
+    public int Questions { get; set; }
+
     public int Score { get; set; }
 
     public DateTime DatePlayed { get; set; }

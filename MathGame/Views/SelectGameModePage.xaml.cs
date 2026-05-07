@@ -2,21 +2,22 @@
 
 namespace MathGame.Views;
 
-public partial class SelectGameMode : ContentPage
+public partial class SelectGameModePage : ContentPage
 {
     private readonly Difficulty _difficulty;
 
-    public SelectGameMode(Difficulty difficulty)
+    public SelectGameModePage(Difficulty difficulty)
     {
         _difficulty = difficulty;
         InitializeComponent();
     }
 
-    private void OnGameChosen(object? sender, EventArgs e)
+    private async void OnGameChosen(object? sender, EventArgs e)
     {
-        var btn = (Button)sender;
+        if (sender is not Button btn || string.IsNullOrWhiteSpace(btn.Text))
+            return;
 
-        Navigation.PushAsync(new GamePage(btn.Text, _difficulty));
+        await Navigation.PushAsync(new SelectQuestionsPage(btn.Text, _difficulty));
     }
 
     private async void OnBackToMenu(object sender, EventArgs e)

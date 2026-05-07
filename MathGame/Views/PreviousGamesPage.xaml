@@ -66,9 +66,8 @@
                 Clicked="OnBackToMenu"
                 FontFamily="PressStartRegular"
                 FontSize="16"
-                Grid.Row="1"
                 HorizontalOptions="Center"
-                IsVisible="False"
+                IsVisible="True"
                 Text="Back to Main Menu"
                 x:Name="BackToMenu">
                 <Button.GestureRecognizers>
