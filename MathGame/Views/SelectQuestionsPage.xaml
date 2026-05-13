@@ -7,7 +7,11 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
     <ContentView>
-        <VerticalStackLayout Padding="50" Spacing="25">
+        <VerticalStackLayout
+            HorizontalOptions="Center"
+            Padding="50,50"
+            Spacing="50"
+            VerticalOptions="Center">
             <Label
                 FontFamily="PressStartRegular"
                 FontSize="32"
@@ -22,9 +26,10 @@
                 Placeholder="e.g. 10"
                 x:Name="QuestionSelectionEntry" />
             <Button
+                BackgroundColor="Coral"
                 Clicked="OnQuestionsSelected"
                 FontFamily="PressStartRegular"
-                FontSize="24"
+                FontSize="16"
                 HorizontalOptions="Center"
                 Text="Answer"
                 x:Name="SubmitAnswer">

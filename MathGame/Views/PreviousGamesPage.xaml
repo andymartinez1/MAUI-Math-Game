@@ -6,7 +6,11 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
     <ScrollView>
-        <VerticalStackLayout Padding="100,100">
+        <VerticalStackLayout
+            HorizontalOptions="Center"
+            Padding="50,50"
+            Spacing="50"
+            VerticalOptions="Center">
             <CollectionView x:Name="GamesList">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
@@ -16,7 +20,7 @@
                             RowDefinitions="*,*">
                             <Label
                                 FontFamily="PressStartRegular"
-                                FontSize="16"
+                                FontSize="12"
                                 Grid.Column="0"
                                 HorizontalTextAlignment="Center"
                                 Text="{Binding DatePlayed, StringFormat='{0:d}'}"
@@ -24,7 +28,7 @@
                                 VerticalTextAlignment="Center" />
                             <Label
                                 FontFamily="PressStartRegular"
-                                FontSize="16"
+                                FontSize="12"
                                 Grid.Column="1"
                                 HorizontalTextAlignment="Center"
                                 Text="{Binding DifficultyDisplay}"
@@ -32,7 +36,7 @@
                                 VerticalTextAlignment="Center" />
                             <Label
                                 FontFamily="PressStartRegular"
-                                FontSize="16"
+                                FontSize="12"
                                 Grid.Column="2"
                                 HorizontalTextAlignment="Center"
                                 Text="{Binding TypeDisplay}"
@@ -40,13 +44,14 @@
                                 VerticalTextAlignment="Center" />
                             <Label
                                 FontFamily="PressStartRegular"
-                                FontSize="16"
+                                FontSize="12"
                                 Grid.Column="3"
                                 HorizontalTextAlignment="Center"
                                 Text="{Binding Score}"
                                 TextColor="Black"
                                 VerticalTextAlignment="Center" />
                             <Button
+                                BackgroundColor="Coral"
                                 BindingContext="{Binding Id}"
                                 Clicked="OnDelete"
                                 FontFamily="PressStartRegular"
@@ -63,6 +68,7 @@
                 </CollectionView.ItemTemplate>
             </CollectionView>
             <Button
+                BackgroundColor="Coral"
                 Clicked="OnBackToMenu"
                 FontFamily="PressStartRegular"
                 FontSize="16"
