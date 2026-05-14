@@ -11,7 +11,12 @@
         Padding="50,50"
         Spacing="50"
         VerticalOptions="Center">
-        <VerticalStackLayout Spacing="25" x:Name="QuestionArea">
+        <VerticalStackLayout
+            HorizontalOptions="Center"
+            Padding="50,50"
+            Spacing="50"
+            VerticalOptions="Center"
+            x:Name="QuestionArea">
             <Label
                 FontFamily="PressStartRegular"
                 FontSize="24"
@@ -51,8 +56,9 @@
         <VerticalStackLayout Padding="100" Spacing="25">
             <Label
                 FontFamily="PressStartRegular"
-                FontSize="24"
+                FontSize="20"
                 HorizontalOptions="Center"
+                TextColor="Black"
                 VerticalOptions="Center"
                 x:Name="GameOverLabel" />
             <Button
